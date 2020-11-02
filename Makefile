@@ -9,12 +9,12 @@ LDFLAGS =  -lc -lgcc -lm -Wl,--as-needed -Wl,--gc-sections -ldrm -lSDL -s -flto 
 OBJDIR = ./src
 APPNAME = main
 
-SOURCES := $(wildcard src/*.c)
-OBJS := $(patsubst src/%.c, src/%.o, $(SOURCES))
+SOURCES := $(wildcard src/*.cpp)
+OBJS := $(patsubst src/%.cpp, src/%.o, $(SOURCES))
 
 # File types rules
-$(OBJDIR)/src/%.o: src/%.c src/%.h
-	$(CC) $(CFLAGS) -o $@ -c $<
+$(OBJDIR)/src/%.o: src/%.cpp src/%.h
+	$(CXX) $(CFLAGS) -o $@ -c $<
 
 all: shared
 
